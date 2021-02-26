@@ -3,7 +3,6 @@
     "type": "library",
     "description": "API Client",
     "keywords": ["api"],
-    ],
   "require": {
     "jamesiarmes/php-ntlm": "~1.0",
     "ext-soap": "*",
