@@ -1,0 +1,8 @@
+{
+  "require": {
+    "jamesiarmes/php-ntlm": "~1.0",
+    "ext-soap": "*",
+    "ext-libxml": "*",
+    "ext-simplexml": "*"
+  }
+}

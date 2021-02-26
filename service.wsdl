@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.dss.sc.gov/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://www.dss.sc.gov/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://www.dss.sc.gov/">
+            <s:element name="getCACInterfaceList">
+                <s:complexType />
+            </s:element>
+            <s:element name="getCACInterfaceListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getCACInterfaceListResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="getCACInterfaceListSoapIn">
+        <wsdl:part name="parameters" element="tns:getCACInterfaceList" />
+    </wsdl:message>
+    <wsdl:message name="getCACInterfaceListSoapOut">
+        <wsdl:part name="parameters" element="tns:getCACInterfaceListResponse" />
+    </wsdl:message>
+    <wsdl:portType name="hssCACInterfaceSoap">
+        <wsdl:operation name="getCACInterfaceList">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve List of CACInterface CAC Portal</wsdl:documentation>
+            <wsdl:input message="tns:getCACInterfaceListSoapIn" />
+            <wsdl:output message="tns:getCACInterfaceListSoapOut" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="hssCACInterfaceSoap" type="tns:hssCACInterfaceSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getCACInterfaceList">
+            <soap:operation soapAction="http://www.dss.sc.gov/getCACInterfaceList" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="hssCACInterfaceSoap12" type="tns:hssCACInterfaceSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getCACInterfaceList">
+            <soap12:operation soapAction="http://www.dss.sc.gov/getCACInterfaceList" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="hssCACInterface">
+        <wsdl:port name="hssCACInterfaceSoap" binding="tns:hssCACInterfaceSoap">
+            <soap:address location="https://www.dss.sc.gov/hssCACProviderWS/hssCACInterface.asmx" />
+        </wsdl:port>
+        <wsdl:port name="hssCACInterfaceSoap12" binding="tns:hssCACInterfaceSoap12">
+            <soap12:address location="https://www.dss.sc.gov/hssCACProviderWS/hssCACInterface.asmx" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
